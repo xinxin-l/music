@@ -4,7 +4,7 @@ module.exports = {
         proxy: {
             '/api': {
                 // https://autumnfish.cn/
-                target: 'http://iwenwiki.com:3000',
+                target: 'https://netease-cloud-music-api-tau-taupe.vercel.app/',
                 changeOrigin: true,
                 pathRewrite: {
                     "^/api": ""
