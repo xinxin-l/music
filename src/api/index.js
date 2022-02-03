@@ -137,9 +137,7 @@ const api = {
     return get('/api/banner')
   },
   toSong(id) {
-    return get('http://iwenwiki.com:3000/song/url', {
-      id
-    })
+    return get(`/api/song/url?id=${id}&realIP=116.25.146.177`)
   },
   toMv(id) {
     return get('/api/mv/url', {

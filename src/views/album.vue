@@ -91,10 +91,11 @@ export default {
             })
         },
         toSong(row) {
-            this.$api.SongDetail(row.id).then(res => {
-                console.log("song detail:", res)
-            })
+            // this.$api.SongDetail(row.id).then(res => {
+            //     console.log("song detail:", res)
+            // })
             this.$api.toSong(row.id).then(res => {
+                console.log(res)
                 this.$parent.$refs.audio_ref.src = res.data[0].url
                 console.log(res)
                 this.setId(row.id)
