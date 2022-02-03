@@ -137,7 +137,7 @@ const api = {
     return get('/api/banner')
   },
   toSong(id) {
-    return get('https://iwenwiki.com:3000/song/url', {
+    return get('http://iwenwiki.com:3000/song/url', {
       id
     })
   },
