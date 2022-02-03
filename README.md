@@ -11,11 +11,11 @@ https://music-ebon-seven.vercel.app/
     2. 在项目中引入vercel.json，其内容为：(记得要将https://netease-cloud-music-api-pnwpdpkcx-xinxin-l.vercel.app 处修改为你自己部署好的网址）
         ``` 
         {
-              "rewrites": [{
-              "source": "/api/:match*",
-              "destination": "https://netease-cloud-music-api-pnwpdpkcx-xinxin-l.vercel.app/:match*"
-              }]
-            }
+            "rewrites": [{
+            "source": "/api/:match*",
+            "destination": "https://netease-cloud-music-api-pnwpdpkcx-xinxin-l.vercel.app/:match*"
+            }]
+        }
 - 部署音乐播放器
     通过导入本地仓库，然后在vercel中引入该项目即可，vercel会自动识别所使用的语言为其部署
        
