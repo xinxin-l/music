@@ -9,7 +9,8 @@ https://music-ebon-seven.vercel.app/
     可以看这个教程 https://zy.prmath.com/393.html ，得到vercel部署好的接口后
     1. 通过在vercel引入的项目中设置settings中的Environment Variables，使其中NAME为VUE_APP_NETEASE_API_URL，VALUE为/api
     2. 在项目中引入vercel.json，其内容为：(记得要将https://netease-cloud-music-api-pnwpdpkcx-xinxin-l.vercel.app 处修改为你自己部署好的网址）
-        ``` {
+        ``` 
+        {
               "rewrites": [{
               "source": "/api/:match*",
               "destination": "https://netease-cloud-music-api-pnwpdpkcx-xinxin-l.vercel.app/:match*"
