@@ -67,7 +67,7 @@ export default {
         }
     },
     created() {
-        console.log(this.$route.params.list)
+        // console.log(this.$route.params.list)
         this.songs = this.$route.params.songs
         this.pic_url = this.$route.params.list.picUrl
         this.art_url = this.$route.params.list.artist.picUrl

@@ -13,7 +13,7 @@
                 <el-tab-pane label="热门歌曲" name="second">
                     <div v-for='item in hotSongs' :key='item.id' class='s'>
                         <div @click='toSong(item.id)'>
-                            <p style='font-size: 16px;margin-bottom:6px'>{{item.name}}</p>
+                            <p style='font-size: 16px;margin-bottom:6px;'>{{item.name}}</p>
                             <p style='font-size: 10px;color:#5E5E5E'>
                                 <span>{{item.al.name}}</span>
                                 <span v-show='item.alia.length'>- {{item.alia[0]}}</span>
@@ -70,6 +70,7 @@ export default {
             this.$api.toSong(id).then(res => {
                 console.log(res)
                 this.$parent.$refs.audio_ref.src = res.data[0].url
+                // console.log(this.$parent.$refs.src)
                 this.setId(id)
             })
         },
@@ -94,11 +95,11 @@ export default {
         this.alias_name = this.$route.query.res.artist.alias[0]
         this.intro = this.$route.query.res.artist.briefDesc
         this.$api.getSingerMv(this.id).then(d => {
-            console.log(d)
+            // console.log(d)
             this.mv = d.mvs
         })
         this.$api.getSingerAlbum(this.id).then(d => {
-            console.log(d)
+            // console.log(d)
             this.album = d.hotAlbums
         })
         this.$parent.keep_arr.push('singerDetail')

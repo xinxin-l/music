@@ -33,9 +33,6 @@ const api = {
   getMv() {
     return get("/api/personalized/mv");
   },
-  getHotRadio() {
-    return get('/api/dj/hot')
-  },
   getNewSong(type = 0) {
     return get('/api/top/song', {
       type,
@@ -46,7 +43,7 @@ const api = {
     return get('/api/mv/first')
   },
   getAllMV(area, type, order, limit = 50, offset) {
-    return get('https://autumnfish.cn/mv/all', {
+    return get('/api/mv/all', {
       area,
       type,
       order,
@@ -58,15 +55,12 @@ const api = {
     return get('/api/album/newest')
   },
   getAllAlbum(area, type, year, month) {
-    return get('https://autumnfish.cn/top/album', {
+    return get('/api/top/album', {
       area,
       type,
       year,
       month
     })
-  },
-  getNewProgram() {
-    return get('/api/personalized/djprogram')
   },
   getVideo() {
     return get('/api/toplist')
@@ -77,13 +71,8 @@ const api = {
   getList() {
     return get('/api/toplist/detail')
   },
-  getProgramDetail(id) {
-    return get('/api/dj/program/detail', {
-      id
-    })
-  },
   getAlbumDetail(id) {
-    return get('/api/album/detail', {
+    return get('/api/album', {
       id
     })
   },
@@ -107,7 +96,7 @@ const api = {
     })
   },
   getAllSinger(limit = 100, type = 2, area = 7) {
-    return get('https://autumnfish.cn/artist/list', {
+    return get('/api/artist/list', {
       limit,
       area,
       type
@@ -148,7 +137,7 @@ const api = {
     return get('/api/banner')
   },
   toSong(id) {
-    return get('/api/song/url', {
+    return get('http://iwenwiki.com:3000/song/url', {
       id
     })
   },
