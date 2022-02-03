@@ -1,5 +1,5 @@
 # music
-使用网易云音乐接口https://neteasecloudmusicapi.vercel.app/，用vue、vue-router写出的音乐播放器，通过vercel部署的接口和音乐播放器。
+使用网易云音乐接口https://neteasecloudmusicapi.vercel.app/ ，用vue、vue-router写出的音乐播放器，通过vercel部署的接口和音乐播放器。
 
 # 线上demo访问
 https://music-ebon-seven.vercel.app/
