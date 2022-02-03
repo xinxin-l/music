@@ -59,7 +59,7 @@ export default {
         this.$api.getMusic().then(data => {
                 this.list = data.result
                 console.log(data.result)
-                this.list.length = 9
+                this.list.length = 6
             }).then(()=>{
                 this.loading_song=false
             }),
