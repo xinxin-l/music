@@ -2,7 +2,7 @@
 使用网易云音乐接口https://neteasecloudmusicapi.vercel.app/，用vue、vue-router写出的音乐播放器，通过vercel部署的接口和音乐播放器。
 
 # 线上demo访问
-    https://music-ebon-seven.vercel.app/
+https://music-ebon-seven.vercel.app/
 
 # vercel部署
 - 部署接口
@@ -14,7 +14,7 @@
               "source": "/api/:match*",
               "destination": "https://netease-cloud-music-api-pnwpdpkcx-xinxin-l.vercel.app/:match*"
               }]
-            }```
+            }
 - 部署音乐播放器
     通过导入本地仓库，然后在vercel中引入该项目即可，vercel会自动识别所使用的语言为其部署
        
