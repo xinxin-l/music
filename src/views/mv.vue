@@ -77,7 +77,6 @@ export default {
             })
             this.$api.MvDetail(id).then(result => {
                 const res = result.data
-                console.log(res)
                 this.art_id = res.artists[0].id
                 this.name = res.name
                 this.time = res.publishTime
@@ -102,25 +101,20 @@ export default {
         this.url = this.$route.params.video_url
         this.id = this.$route.params.id
         this.art_id = this.$route.params.a_id
-        console.log(this.id, this.art_id)
         this.$api.MvDetail(this.id).then(res => {
-            console.log(res)
             this.name = res.data.name
             this.time = res.data.publishTime
             this.playconut = res.data.playCount
         })
         this.$api.getArtistInfo(this.art_id).then(res => {
-            console.log(res)
             this.art_name = res.artist.name
             this.img_url = res.artist.picUrl
             this.intro = res.artist.briefDesc
         })
         this.$api.getSimiMv(this.id).then(res => {
-            console.log(res.mvs)
             this.simi = res.mvs
         })
         this.$api.mv_comment(this.id).then(res => {
-            console.log(res)
             this.total = res.total
             this.hotcomment = res.hotComments
             this.newcomment = res.comments
@@ -168,7 +162,7 @@ video {
 
 .intro {
     font-size: 12px;
-    margin: 6px 15px 10px 0;
+    margin: 6px 9px 10px 0;
     color: #555555;
     display: -webkit-box;
     -webkit-box-orient: vertical;

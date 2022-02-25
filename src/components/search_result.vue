@@ -3,7 +3,7 @@
         <el-tabs v-model="activeName" stretch @tab-click='change'>
             <el-tab-pane label="单曲" name="first">
                 <div class="list">
-                    <el-table :data="list" :key='list.id' fit stripe style="width: 100%" @cell-click='toSong'>
+                    <el-table :data="list" :key='list.id' fit stripe style="width: 100%" @cell-click='toSong' class='song_result'>
                         <el-table-column prop="name" label="歌曲" align='center'>
                         </el-table-column>
                         <el-table-column props='artists' label="歌手" align='center' :formatter='art_name'>
@@ -14,22 +14,22 @@
                 </div>
             </el-tab-pane>
             <el-tab-pane label="专辑" name="second">
-                <div class='playlist'>
+                <div class='playlist' v-loading='loading_ab'>
                     <album v-for='item in album' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl'></album>
                 </div>
             </el-tab-pane>
             <el-tab-pane label="MV" name="third">
-                <div class="mv">
+                <div class="mv" v-loading='loading_mv'>
                     <mv :pic_url='item.cover' :name='item.name' :id='item.id' :art_id='item.artistId' v-for='item in mv' :key='item.id'></mv>
                 </div>
             </el-tab-pane>
             <el-tab-pane label="歌单" name="fourth">
-                <div class='playlist'>
+                <div class='playlist' v-loading='loading_pl'>
                     <playlist v-for='item in playlist' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl'></playlist>
                 </div>
             </el-tab-pane>
             <el-tab-pane label="歌手" name="fifth">
-                <div>
+                <div v-loading='loading_singer'>
                     <div v-for='item in singer' :key='item.id' class='s'>
                         <img :src="item.picUrl" alt="" @click='toSinger(item.id)'>
                         <div @click='toSinger(item.id)'>
@@ -60,7 +60,11 @@ export default {
             singer: [],
             activeName: 'first',
             now_index: 0,
-            now_star: false
+            now_star: false,
+            loading_ab:true,
+            loading_mv:true,
+            loading_pl:true,
+            loading_singer:true
         }
     },
     methods: {
@@ -94,35 +98,37 @@ export default {
                 e.target.className = 'el-icon-star-off star'
             }
         },
+        // 点击对应栏目时再请求数据
         change(e) {
             let tem = this.song_name
             if (e) {
-                console.log(e)
                 this.now_index = e.index
             }
             if (this.now_index === '1') {
                 this.$api.search(tem, 10).then(res => {
                     this.album = res.result.albums
+                    this.loading_ab=false
                 })
             } else if (this.now_index === '2') {
                 this.$api.search(tem, 1004).then(res => {
-                    console.log(res)
                     this.mv = res.result.mvs
+                    this.loading_mv=false
                 })
             } else if (this.now_index === '3') {
                 this.$api.search(tem, 1000).then(res => {
-                    console.log(res)
                     this.playlist = res.result.playlists
+                    this.loading_pl=false
                 })
             } else if (this.now_index === '4') {
                 this.$api.search(tem, 100).then(res => {
-                    console.log(res)
                     this.singer = res.result.artists
+                    this.loading_singer=false
                 })
             }
         }
     },
     watch: {
+        // 搜索栏内容更改时，请求对应数据
         song_name() {
             this.change()
         }
@@ -161,7 +167,7 @@ export default {
     margin-right: 10px;
 }
 
-.star:hover {
+.song_result,.star,.s:hover {
     cursor: pointer;
 }
 </style>

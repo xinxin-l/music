@@ -18,7 +18,7 @@ export default {
     data() {
         return {
             url: '',
-            keep_arr: ['all_playList', 'home', 'search', 'album', 'singerDetail', 'playList', 'today', 'all_album', 'today']
+            keep_arr: ['all_playList', 'home', 'search', 'album', 'singerDetail', 'playList', 'all_album', 'today','all_singer']
         }
     },
     methods: {

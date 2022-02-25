@@ -89,11 +89,9 @@ export default {
         this.creator_pic = this.$route.params.creator_pic
         this.creator_backpic = this.$route.params.creator_backpic
         this.$api.hotcomment(this.id).then(res => {
-            console.log(res.hotComments)
             this.hotcomment = res.hotComments
         })
         this.$api.newcomment(this.id).then(res => {
-            // console.log(res.comments)
             this.total = res.total
             this.newcomment = res.comments
         })
@@ -137,13 +135,16 @@ export default {
     align-items: center;
 }
 
+.temp:hover{
+    cursor: pointer;
+}
+
 /deep/ p {
     margin: 0 0 8px 10px;
 }
 
 .hot_com {
     width: 100%;
-    /*height: 200px;*/
 }
 
 .head img {

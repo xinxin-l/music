@@ -1,6 +1,6 @@
 <template>
-    <div class='s_box' v-loading='loading'>
-        <div v-for='item in lists' :key='item.id' class='list_one' @click="toSong(item.id)">
+    <div class='s_box'>
+        <div v-for='item in lists' :key='item.id' class='list_one' @click="toSongList(item.id)">
             <img :src="item.coverImgUrl" alt="">
             <div class='tt'>{{item.name}}</div>
         </div>
@@ -11,21 +11,17 @@ export default {
     data() {
         return {
             list: [],
-            lists: [],
-            loading:true
+            lists: []
         }
     },
     methods: {
-        toSong(Id) {
+        toSongList(Id) {
             this.$router.push({name:'each_list',params:{id:Id}})
         }
     },
     created() {
         this.$api.getList().then(result => {
-            console.log(result)
             this.lists=result.list
-        }).then(()=>{
-            this.loading=false
         })
     }
 

@@ -11,7 +11,7 @@
                 <span class='b' @click='change'>日本</span>
             </div>
         </div>
-        <div class="list" v-loading="loading">
+        <div class="list" v-loading='loading'>
             <div v-for='item in song' :key='item.id' class='s'>
                 <div @click='toSong(item.id)'>
                     <p style='font-size: 16px;margin-bottom:6px'>{{item.name}}</p>
@@ -41,17 +41,27 @@ export default {
             right: 30,
             page: 0,
             total: 50,
-            loading:true
+            loading: true
         }
     },
     methods: {
         toSong(id) {
             this.$api.toSong(id).then(res => {
-                this.$parent.$refs.audio_ref.src = res.data[0].url
-                this.setId(id)
+                // 若歌曲无法播放，则弹出弹窗
+                if (res.data[0].code === 404) {
+                    this.$message({
+                        message: '歌曲暂时无法播放',
+                        type: 'warning',
+                        center: true
+                    });
+                } else {
+                    this.$parent.$refs.audio_ref.src = res.data[0].url
+                    this.setId(id)
+                }
             })
         },
         change(e) {
+            this.loading = true
             var str = e.target.innerText
             for (let i = 1; i < e.path[1].children.length; i++) {
                 e.path[1].children[i].style = ''
@@ -63,6 +73,7 @@ export default {
                 this.songs = res.data
                 this.total = res.data.length
                 this.song = res.data.slice(0, 30)
+                this.loading = false
             })
         },
         handleCurrentChange(val) {
@@ -75,8 +86,8 @@ export default {
             this.songs = res.data
             this.song = res.data.slice(0, 30)
             this.total = res.data.length
-        }).then(()=>{
-            this.loading=false
+        }).then(() => {
+            this.loading = false
         })
     }
 }
@@ -98,6 +109,7 @@ export default {
 
 .s:hover {
     background-color: #F0F0F0;
+    cursor: pointer;
 }
 
 .select {
@@ -145,11 +157,11 @@ export default {
     border-bottom: 0;
 }
 
-/deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
+/*/deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
     background-color: #D45E5C;
 }
 
 /deep/ .el-pagination.is-background .el-pager li:not(.disabled):hover {
     color: #D45E5C;
-}
+}*/
 </style>

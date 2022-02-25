@@ -24,7 +24,7 @@
                 <a href="#/all_playList">更多</a>
             </div>
             <div class='playlist' v-loading="loading_pl">
-                <playlist v-for='item in playlist' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl'></playlist>
+                <playlist v-for='item in playlist' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl' @change='change_pl'></playlist>
             </div>
         </div>
         <div class="container">
@@ -35,7 +35,7 @@
                 <a href="#/all_mv">更多</a>
             </div>
             <div v-loading="loading_mv">
-                <mv v-for='item in mv' :key='item.id' :pic_url='item.cover' :name='item.name' :art_id='item.artistId' :id='item.id'></mv>
+                <mv v-for='item in mv' :key='item.id' :pic_url='item.cover' :name='item.name' :art_id='item.artistId' :id='item.id' @change='change_mv'></mv>
             </div>
         </div>
         <div class="container">
@@ -46,7 +46,7 @@
                 <a href="#/all_album">更多</a>
             </div>
             <div class='playlist' v-loading="loading_ab">
-                <album v-for='item in album' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl'></album>
+                <album v-for='item in album' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl' @change='change_ab'></album>
             </div>
         </div>
     </div>
@@ -81,9 +81,9 @@ export default {
         }
     },
     methods: {
+        // 调用接口获取数据
         get_banners() {
             this.$api.banners().then(data => {
-                console.log(data)
                 this.banners = data.banners
                 this.banners.length = 6
             })
@@ -106,7 +106,6 @@ export default {
         },
         getNewAlbum() {
             this.$api.getNewAlbum().then(res => {
-                console.log(res)
                 this.albums = res.albums
                 this.album = res.albums.slice(0, 6)
             }).then(() => {
@@ -117,10 +116,19 @@ export default {
         play(item) {
             const id = item.targetId
             this.$api.toSong(id).then(res => {
-                this.$parent.$refs.audio_ref.src = res.data[0].url
-                this.setId(res.data[0].id) //修改全局变量 song的Id
+                if (res.data[0].code === 404) {
+                    this.$message({
+                        message: '歌曲暂时无法播放',
+                        type: 'warning',
+                        center: true
+                    });
+                } else {
+                    this.$parent.$refs.audio_ref.src = res.data[0].url
+                    this.setId(res.data[0].id) //修改全局变量 song的Id
+                }
             })
         },
+        // 点击刷新旋钮时加载数据（除歌曲外不需要调用接口）
         async refresh_song() {
             await this.$refs.song_ref.changeSong()
         },
@@ -138,6 +146,16 @@ export default {
             this.al_left = (this.al_left + 6) % 12
             this.al_right = this.al_left + 6
             this.album = this.albums.slice(this.al_left, this.al_right)
+        },
+        // 跳转到歌单/mv/专辑界面之前显示加载
+        change_pl(val) {
+            this.loading_pl = val
+        },
+        change_mv(val) {
+            this.loading_mv = val
+        },
+        change_ab(val) {
+            this.loading_ab = val
         }
     },
     created() {
@@ -145,21 +163,9 @@ export default {
         this.getNewList()
         this.getNewMV()
         this.getNewAlbum()
-        // this.getNewProgram()
     },
     activated() {
-        let num1 = this.$parent.keep_arr.indexOf('album')
-        if (num1 !== -1) {
-            this.$parent.keep_arr.splice(num1, 1)
-        }
-        let num2 = this.$parent.keep_arr.indexOf('playList')
-        if (num2 !== -1) {
-            this.$parent.keep_arr.splice(num2, 1)
-        }
-        let num3 = this.$parent.keep_arr.indexOf('search')
-        if (num3 !== -1) {
-            this.$parent.keep_arr.splice(num3, 1)
-        }
+        this.$parent.keep_arr = ['all_playList', 'home', 'today', 'all_album', 'all_singer']
     }
 }
 </script>

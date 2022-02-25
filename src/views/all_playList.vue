@@ -2,7 +2,7 @@
     <div class='all'>
         <back></back>
         <i class="el-icon-s-unfold unfold" @click='unfold'></i>
-        <div class="nav" @mouseout='fold(true)' @mouseover='fold(false)' ref='nav_ref'>
+        <div class="nav" ref='nav_ref'>
             <el-menu class="el-menu-vertical-demo" :collapse="true">
                 <el-submenu v-for='(d,i) in category' :key='d.id' :index='i' tabindex='1'>
                     <template slot="title">
@@ -15,7 +15,7 @@
             </el-menu>
         </div>
         <div class='playlist' v-loading="loading">
-            <playlist v-for='item in playlists' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl'></playlist>
+            <playlist v-for='item in playlists' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl' @change='change_load'></playlist>
         </div>
         <div class='page'>
             <el-pagination @current-change="handleCurrentChange" background layout="prev, pager, next" :total="total" :current-page="page" :page-size="39">
@@ -49,15 +49,11 @@ export default {
         }
     },
     methods: {
-        fold(un) {
-            if (!un && this.timer) {
-                clearTimeout(this.timer)
-                return
-            }
-            this.timer = setTimeout(() => {
-                this.$refs.nav_ref.style = 'display:none'
-            }, 1500)
+        // 折叠目录
+        fold() {
+            this.$refs.nav_ref.style = 'display:none'
         },
+        // 展开目录
         unfold() {
             if (this.$refs.nav_ref.style.display === 'block') {
                 this.$refs.nav_ref.style = 'display:none'
@@ -67,21 +63,30 @@ export default {
                 this.$refs.nav_ref.style = 'display:block'
             }, 100)
         },
+        // 根据歌单标签更新歌单数据
         toList(d) {
-            console.log(d.$slots.default[0].text)
+            this.fold()
+            this.loading=true
             var t = d.$slots.default[0].text.trim()
             this.$api.getNewList(t, 39).then(res => {
-                console.log(res)
                 this.playlists = res.playlists
                 this.now_category = t
                 this.total = res.total
+                this.loading=false
             })
         },
+        // 页数，加载数据
         handleCurrentChange(val) {
             this.page = val
+            this.loading=true
             this.$api.getNewList(this.now_category, this.page * 39, 39).then(res => {
                 this.playlists = res.playlists
+                this.loading=false
             })
+        },
+        // 转到歌单界面之前，在all_playlist界面显示加载
+        change_load(val){
+            this.loading=val
         }
     },
     created() {
@@ -90,7 +95,6 @@ export default {
             res.sub.forEach(item => {
                 this.sub_category[item.category].push(item.name)
             })
-            console.log(this.sub_category)
         })
         this.$api.getNewList('华语', 0, 39).then(res => {
             this.playlists = res.playlists
@@ -104,6 +108,8 @@ export default {
         this.$refs.nav_ref.style = 'display:none'
     },
     activated() {
+        console.log("dudu")
+        // 防止重复进入同一个歌单
         let num2 = this.$parent.keep_arr.indexOf('playList')
         if (num2 !== -1) {
             this.$parent.keep_arr.splice(num2, 1)
@@ -114,22 +120,6 @@ export default {
 <style scoped>
 .all {
     padding-bottom: 54px;
-}
-
-/deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
-    background-color: #D45E5C;
-}
-
-/deep/ .el-pagination.is-background .el-pager li:not(.disabled):hover{
-    color: #D45E5C;
-}
-
-/deep/ .el-submenu__title:hover{
-    background-color: #FFEAE9;
-}
-
-/deep/ .el-menu-item:focus, .el-menu-item:hover{
-    background-color: #FFEAE9;
 }
 
 .el-menu-vertical-demo:not(.el-menu--collapse) {

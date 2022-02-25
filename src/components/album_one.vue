@@ -9,10 +9,10 @@ export default {
     props: ['pic_url', 'id', 'name'],
     methods: {
         toAlbum() {
-            console.log("dududu",this.id)
+            this.$emit('change',true)
             this.$api.getAlbumDetail(this.id).then(res => {
-                console.log(res)
                 this.$router.push({ name: 'album', params: { list: res.album, songs: res.songs } })
+                this.$emit('change',false)
             })
         }
     }

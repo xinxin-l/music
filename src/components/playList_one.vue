@@ -9,10 +9,13 @@ export default {
     props: ['pic_url', 'id', 'name'],
     methods: {
         toList() {
+            // 向父组件传值，修改loading
+            this.$emit('change',true)
             this.$api.playList(this.id).then(res => {
                 const list = res.playlist
                 const tem = list.tracks
                 this.$router.push({ name: 'playList', params: { t: tem, id: this.id, description: list.description, tags: list.tags, creator_name: list.creator.nickname, creator_pic: list.creator.avatarUrl, creator_backpic: list.creator.backgroundUrl } })
+                this.$emit('change',false)
             })
         }
     }

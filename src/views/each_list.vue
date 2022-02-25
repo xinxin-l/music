@@ -1,8 +1,8 @@
 <template>
     <div>
         <back></back>
-        <div class="each_list">
-            <el-table :data="list" :key='list.id' fit stripe style="width: 100%" @cell-click='toSong'>
+        <div class="each_list" v-loading='loading'>
+            <el-table :data="list" :key='list.id' fit stripe style="width: 100%" @cell-click='toSong' class='song_list'>
                 <el-table-column prop="name" label="歌曲" align='center'>
                 </el-table-column>
                 <el-table-column prop="ar[0].name" label="歌手" align='center'>
@@ -28,7 +28,8 @@ export default {
             page: 1,
             total: 1,
             l:0,
-            r:34
+            r:34,
+            loading:true
         }
     },
     methods: {
@@ -47,10 +48,10 @@ export default {
     },
     created() {
         this.$api.playList(this.$route.params.id).then(res => {
-            console.log(res.playlist.tracks)
             this.total = res.playlist.tracks.length
             this.lists = res.playlist.tracks
             this.list = res.playlist.tracks.slice(0, 34)
+            this.loading=false
         })
     }
 }
@@ -69,5 +70,9 @@ export default {
 
 /deep/ .active {
     border-bottom: 0;
+}
+
+.song_list:hover{
+    cursor: pointer; 
 }
 </style>

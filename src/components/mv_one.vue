@@ -9,8 +9,10 @@ export default {
     props: ['pic_url', 'name', 'id', 'art_id'],
     methods: {
         toMv() {
+            this.$emit('change',true)
             this.$api.toMv(this.id).then(res => {
                 this.$router.push({ name: 'mv', params: { video_url: res.data.url, a_id: this.art_id, id: this.id } })
+                this.$emit('change',false)
             })
         }
     }

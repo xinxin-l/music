@@ -9,8 +9,10 @@ export default {
     props: ['name', 'img_url', 'id'],
     methods: {
         toSinger() {
+            this.$emit('change',true)
             this.$api.getSingerDetail(this.id).then(res => {
                 this.$router.push({ path: 'singerDetail', query: { res } })
+                this.$emit('change',false)
             })
         }
     }

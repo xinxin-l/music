@@ -2,6 +2,7 @@
     <div class='total'>
         <back></back>
         <img :src="imgUrl" alt="">
+        <p style='text-align: center; margin-bottom: 15px;font-size:1.2em'>{{name}}</p>
         <div class='_icon'>
             <i class="el-icon-star-off"></i>
             <i class="el-icon-download"></i>
@@ -20,7 +21,8 @@ export default {
         return {
             imgUrl: '',
             lyric: {},
-            allKeys: []
+            allKeys: [],
+            name:''
         }
     },
     methods: {
@@ -60,11 +62,11 @@ export default {
         const id = this.getId()
         this.$api.getLyric(id).then(res => {
             this.lyric = res.lrc.lyric
-            console.log(this.lyric)
             this.filterLRC(this.lyric)
         })
         this.$api.SongDetail(id).then(res => {
-            this.imgUrl = res.songs[0].al.picUrl
+            this.imgUrl = res.songs[0].al.pcUirl
+            this.name=res.songs[0].name
         })
     }
 }

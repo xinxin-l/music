@@ -35,10 +35,7 @@ export default {
         this.$parent.keep_arr.push('search')
     },
     activated(){
-        let num = this.$parent.keep_arr.indexOf('singerDetail')
-        if (num !== -1) {
-            this.$parent.keep_arr.splice(num, 1)
-        }
+        this.$parent.keep_arr = ['home', 'today','search']
     }
 }
 </script>
