@@ -48,7 +48,7 @@
 <script>
 import comment from '../components/comment.vue'
 export default {
-    name:'album',
+    name: 'album',
     components: { comment },
     data() {
         return {
@@ -90,8 +90,16 @@ export default {
         },
         toSong(row) {
             this.$api.toSong(row.id).then(res => {
-                this.$parent.$refs.audio_ref.src = res.data[0].url
-                this.setId(row.id)
+                if (res.data[0].code === 404) {
+                    this.$message({
+                        message: '歌曲暂时无法播放',
+                        type: 'warning',
+                        center: true
+                    })
+                } else {
+                    this.$parent.$refs.audio_ref.src = res.data[0].url
+                    this.setId(row.id)
+                }
             })
         },
     }

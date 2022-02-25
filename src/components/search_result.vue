@@ -61,20 +61,28 @@ export default {
             activeName: 'first',
             now_index: 0,
             now_star: false,
-            loading_ab:true,
-            loading_mv:true,
-            loading_pl:true,
-            loading_singer:true
+            loading_ab: true,
+            loading_mv: true,
+            loading_pl: true,
+            loading_singer: true
         }
     },
     methods: {
         toSong(row) {
             this.$api.toSong(row.id).then(res => {
-                this.$parent.$parent.$refs.audio_ref.src = res.data[0].url
-                this.setId(res.data[0].id)
+                if (res.data[0].code === 404) {
+                    this.$message({
+                        message: '歌曲暂时无法播放',
+                        type: 'warning',
+                        center: true
+                    })
+                } else {
+                    this.$parent.$parent.$refs.audio_ref.src = res.data[0].url
+                    this.setId(res.data[0].id)
+                }
             })
         },
-        toSinger(Id){
+        toSinger(Id) {
             this.$api.getSingerDetail(Id).then(res => {
                 this.$router.push({ path: 'singerDetail', query: { res } })
             })
@@ -107,22 +115,22 @@ export default {
             if (this.now_index === '1') {
                 this.$api.search(tem, 10).then(res => {
                     this.album = res.result.albums
-                    this.loading_ab=false
+                    this.loading_ab = false
                 })
             } else if (this.now_index === '2') {
                 this.$api.search(tem, 1004).then(res => {
                     this.mv = res.result.mvs
-                    this.loading_mv=false
+                    this.loading_mv = false
                 })
             } else if (this.now_index === '3') {
                 this.$api.search(tem, 1000).then(res => {
                     this.playlist = res.result.playlists
-                    this.loading_pl=false
+                    this.loading_pl = false
                 })
             } else if (this.now_index === '4') {
                 this.$api.search(tem, 100).then(res => {
                     this.singer = res.result.artists
-                    this.loading_singer=false
+                    this.loading_singer = false
                 })
             }
         }
@@ -167,7 +175,9 @@ export default {
     margin-right: 10px;
 }
 
-.song_result,.star,.s:hover {
+.song_result,
+.star,
+.s:hover {
     cursor: pointer;
 }
 </style>

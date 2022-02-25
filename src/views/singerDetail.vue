@@ -68,10 +68,16 @@ export default {
         handleClick() {},
         toSong(id) {
             this.$api.toSong(id).then(res => {
-                console.log(res)
-                this.$parent.$refs.audio_ref.src = res.data[0].url
-                // console.log(this.$parent.$refs.src)
-                this.setId(id)
+                if (res.data[0].code === 404) {
+                    this.$message({
+                        message: '歌曲暂时无法播放',
+                        type: 'warning',
+                        center: true
+                    })
+                } else {
+                    this.$parent.$refs.audio_ref.src = res.data[0].url
+                    this.setId(id)
+                }
             })
         },
         toMv(id) {

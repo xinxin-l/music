@@ -27,23 +27,31 @@ export default {
             lists: [],
             page: 1,
             total: 1,
-            l:0,
-            r:34,
-            loading:true
+            l: 0,
+            r: 34,
+            loading: true
         }
     },
     methods: {
         toSong(row) {
             this.$api.toSong(row.id).then(res => {
-                this.$parent.$refs.audio_ref.src = res.data[0].url
-                this.setId(row.id)
+                if (res.data[0].code === 404) {
+                    this.$message({
+                        message: '歌曲暂时无法播放',
+                        type: 'warning',
+                        center: true
+                    })
+                } else {
+                    this.$parent.$refs.audio_ref.src = res.data[0].url
+                    this.setId(row.id)
+                }
             })
         },
         handleCurrentChange(val) {
             this.page = val
-            this.l=(val-1)*33,
-            this.r=this.l+33
-            this.list = this.lists.slice(this.l,this.r)
+            this.l = (val - 1) * 33,
+                this.r = this.l + 33
+            this.list = this.lists.slice(this.l, this.r)
         }
     },
     created() {
@@ -51,7 +59,7 @@ export default {
             this.total = res.playlist.tracks.length
             this.lists = res.playlist.tracks
             this.list = res.playlist.tracks.slice(0, 34)
-            this.loading=false
+            this.loading = false
         })
     }
 }
@@ -72,7 +80,7 @@ export default {
     border-bottom: 0;
 }
 
-.song_list:hover{
-    cursor: pointer; 
+.song_list:hover {
+    cursor: pointer;
 }
 </style>
