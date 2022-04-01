@@ -5,7 +5,7 @@
             搜索：<input type="text" v-model.lazy='song_name' class='search' placeholder="请输入关键词">
         </div>
         <div class="result" v-show='song_name'>
-            <search_result :list='lists' :song_name='song_name'></search_result>
+            <search_result :list='lists' :song_name='song_name' ref='search_res'></search_result>
         </div>
         <div class="another" v-show='!song_name' ref='s_box'>
             <search_list style='margin-top:30px' ref='search_ref'></search_list>
@@ -26,8 +26,10 @@ export default {
     },
     watch: {
         song_name() {
+            this.$refs.search_res.loading_song=true
             this.$api.search(this.song_name).then(res => {
                 this.lists = res.result.songs
+                this.$refs.search_res.loading_song=false
             })
         }
     },

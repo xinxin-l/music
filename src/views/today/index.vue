@@ -23,9 +23,11 @@
                 </h3>
                 <a href="#/all_playList">更多</a>
             </div>
-            <div class='playlist' v-loading="loading_pl">
-                <playlist v-for='item in playlist' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl' @change='change_pl'></playlist>
-            </div>
+            <el-skeleton variant="image" :loading="loading_pl" animated :throttle="500">
+                <div class='playlist'>
+                    <playlist v-for='item in playlist' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.coverImgUrl' @change='change_pl'></playlist>
+                </div>
+            </el-skeleton>
         </div>
         <div class="container">
             <div class="top">
@@ -34,9 +36,9 @@
                 </h3>
                 <a href="#/all_mv">更多</a>
             </div>
-            <div v-loading="loading_mv">
+            <el-skeleton variant="image" :loading="loading_mv" animated :throttle="500" id='r_mv'>
                 <mv v-for='item in mv' :key='item.id' :pic_url='item.cover' :name='item.name' :art_id='item.artistId' :id='item.id' @change='change_mv'></mv>
-            </div>
+            </el-skeleton>
         </div>
         <div class="container">
             <div class="top">
@@ -45,9 +47,11 @@
                 </h3>
                 <a href="#/all_album">更多</a>
             </div>
-            <div class='playlist' v-loading="loading_ab">
-                <album v-for='item in album' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl' @change='change_ab'></album>
-            </div>
+            <el-skeleton variant="image" :loading="loading_ab" animated :throttle="500">
+                <div class='playlist' v-loading="loading_ab">
+                    <album v-for='item in album' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl' @change='change_ab'></album>
+                </div>
+            </el-skeleton>
         </div>
     </div>
 </template>
@@ -156,13 +160,22 @@ export default {
         },
         change_ab(val) {
             this.loading_ab = val
+        },
+        r_mv(){
+            console.log("duduud")
         }
     },
     created() {
         this.get_banners()
         this.getNewList()
+
         this.getNewMV()
         this.getNewAlbum()
+    },
+    mounted() {
+        let mv = document.getElementById('r_mv')
+        let observer = new IntersectionObserver(this.r_mv)
+        observer.observe(mv)
     },
     activated() {
         this.$parent.keep_arr = ['all_playList', 'home', 'today', 'all_album', 'all_singer']

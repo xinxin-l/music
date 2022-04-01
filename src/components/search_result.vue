@@ -2,11 +2,11 @@
     <div>
         <el-tabs v-model="activeName" stretch @tab-click='change'>
             <el-tab-pane label="单曲" name="first">
-                <div class="list">
+                <div class="list" v-loading='loading_song'>
                     <el-table :data="list" :key='list.id' fit stripe style="width: 100%" @cell-click='toSong' class='song_result'>
                         <el-table-column prop="name" label="歌曲" align='center'>
                         </el-table-column>
-                        <el-table-column props='artists' label="歌手" align='center' :formatter='art_name'>
+                        <el-table-column prop='artists' label="歌手" align='center' :formatter='art_name'>
                         </el-table-column>
                         <el-table-column prop="album.name" label="专辑" align='center'>
                         </el-table-column>
@@ -64,7 +64,8 @@ export default {
             loading_ab: true,
             loading_mv: true,
             loading_pl: true,
-            loading_singer: true
+            loading_singer: true,
+            loading_song:true
         }
     },
     methods: {

@@ -7,40 +7,46 @@
         </div>
         <list_view>
             <!-- 这里的三个div是list中留的slot -->
-            <div class='song' v-loading="loading_song">
-                <box :name='item.name' :picUrl='item.picUrl' :Id='item.id' v-for='item in list' :key='item.id'></box>
-            </div>
-            <template v-slot:hot>
-                <div class="playlist" v-loading="loading_pl">
-                    <playlist v-for='item in hot_list' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl' @change='change_pl'></playlist>
+<!--             <el-skeleton variant="image" :loading="loading_song" animated :throttle="500">
+                <div class='song'>
+                    <box :name='item.name' :picUrl='item.picUrl' :Id='item.id' v-for='item in list' :key='item.id'></box>
                 </div>
+            </el-skeleton> -->
+            <template v-slot:hot>
+                <el-skeleton variant="image" :loading="loading_pl" animated :throttle="500">
+                    <div class="playlist">
+                        <playlist v-for='item in hot_list' :key='item.id' :id='item.id' :name='item.name' :pic_url='item.picUrl' @change='change_pl'></playlist>
+                    </div>
+                </el-skeleton>
             </template>
             <template v-slot:mv>
-                <div v-loading="loading_mv">
+                <el-skeleton variant="image" :loading="loading_mv" animated :throttle="500">
                     <mv v-for='item in mv_list' :key='item.id' :name='item.name' :pic_url='item.picUrl' :id='item.id' :art_id='item.artistId' @change='change_mv'></mv>
-                </div>
+                </el-skeleton>
             </template>
             <!-- 热门歌手 -->
             <template v-slot:singer>
-                <el-carousel trigger="click" height="260px" v-loading="loading_singer">
-                    <el-carousel-item v-for="(hot_singer,index) in hot_singers" :key="index">
-                        <singer :name='item.name' :img_url='item.picUrl' :key='item.id' :id='item.id' v-for='item in hot_singer' @change='change_singer'></singer>
-                    </el-carousel-item>
-                </el-carousel>
+                <el-skeleton variant="image" :loading="loading_singer" animated :throttle="500">
+                    <el-carousel trigger="click" height="260px" v-loading="loading_singer">
+                        <el-carousel-item v-for="(hot_singer,index) in hot_singers" :key="index">
+                            <singer :name='item.name' :img_url='item.picUrl' :key='item.id' :id='item.id' v-for='item in hot_singer' @change='change_singer'></singer>
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-skeleton>
             </template>
         </list_view>
     </div>
 </template>
 <script>
 import list_view from './musicListView.vue'
-import box from '../../components/box.vue'
+// import box from '../../components/box.vue'
 import singer from '../../components/singer.vue'
 // import radio from '../../components/radio.vue'
 import mv from '../../components/mv_one.vue'
 import playlist from '../../components/playList_one.vue'
 
 export default {
-    components: { list_view, box, singer, mv, playlist },
+    components: { list_view, singer, mv, playlist },
     name: 'home',
     data() {
         return {
@@ -91,8 +97,8 @@ export default {
         change_mv(val) {
             this.loading_mv = val
         },
-        change_singer(val){
-            this.loading_singer=val
+        change_singer(val) {
+            this.loading_singer = val
         }
     },
     watch: {

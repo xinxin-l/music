@@ -1,13 +1,13 @@
 <template>
     <!-- 视图渲染 -->
     <div>
-        <div class="container">
+<!--         <div class="container">
             <div class="top">
                 <h3>热门新歌</h3>
                 <a href="#/all_song">更多</a>
             </div>
             <slot></slot>
-        </div>
+        </div> -->
         <div class="container">
             <div class="top">
                 <h3>热门歌单</h3>
