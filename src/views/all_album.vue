@@ -254,9 +254,9 @@ export default {
   margin-bottom: 10px;
 }
 
-/deep/ .active {
+/* /deep/ .active {
   border-bottom: 0;
-}
+} */
 
 .page {
   width: 100%;
@@ -265,19 +265,19 @@ export default {
   justify-content: center;
 }
 
-/deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
+/* /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #d45e5c;
 }
 
 /deep/ .el-pagination.is-background .el-pager li:not(.disabled):hover {
   color: #d45e5c;
-}
+} */
 
 div.time {
   margin-top: 0;
 }
 
-/deep/ .time .el-input__inner {
+/* /deep/ .time .el-input__inner {
   height: 30px;
   line-height: 30px;
   width: 110px;
@@ -287,9 +287,9 @@ div.time {
 /deep/ .el-date-editor.el-input,
 .el-date-editor.el-input__inner {
   width: 110px;
-}
+} */
 
-/deep/ .el-input__icon {
+/* /deep/ .el-input__icon {
   line-height: 30px;
 }
 
@@ -300,5 +300,5 @@ div.time {
 
 /deep/ .el-select-dropdown__item {
   display: inline-block;
-}
+} */
 </style>

@@ -146,10 +146,6 @@ export default {
   justify-content: center;
 }
 
-/deep/ .active {
-  border-bottom: 0;
-}
-
 .list {
   margin: 0 10px;
   display: flex;
@@ -180,12 +176,12 @@ export default {
 .select .a {
   padding: 8px 0 8px 10px;
 }
-
+/* 
 /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
   background-color: #d45e5c;
 }
 
 /deep/ .el-pagination.is-background .el-pager li:not(.disabled):hover {
   color: #d45e5c;
-}
+} */
 </style>

@@ -180,9 +180,9 @@ export default {
   align-items: center;
 }
 
-/deep/ p {
+/* /deep/ p {
   margin: 0 0 8px 10px;
-}
+} */
 
 .hot_com {
   width: 100%;
@@ -202,7 +202,7 @@ export default {
   justify-content: center;
 }
 
-/deep/ .active {
+/* /deep/ .active {
   border-bottom: 0;
 }
 
@@ -211,14 +211,14 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   /* 显示三行，后面省略 */
-  overflow: auto;
-}
-
+  /* overflow: auto; */
+/* } */
+/* 
 /deep/.cell {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   /* 显示三行，后面省略 */
-  overflow: auto;
-}
+  /* overflow: auto; */
+/* }  */
 </style>

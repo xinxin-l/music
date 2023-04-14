@@ -160,10 +160,6 @@ export default {
   justify-content: center;
 }
 
-/deep/ .active {
-  border-bottom: 0;
-}
-
 /*/deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
     background-color: #D45E5C;
 }

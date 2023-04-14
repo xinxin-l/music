@@ -239,7 +239,4 @@ video {
   justify-content: center;
 }
 
-/deep/ .active {
-  border-bottom: 0;
-}
 </style>
