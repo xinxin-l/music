@@ -96,34 +96,34 @@ module.exports = {
         bypassOnDebug: true,
       })
       .end();
-    // 使用babel转换ES6模块
-    config.module
-      .rule('vue')
-      .use('vue-loader')
-      .loader('vue-loader')
-      .tap((options) => {
-        // 修改options中的babel配置
-        options.transformAssetUrls = {
-          audio: 'src',
-        };
-        options.transformToRequire = {
-          img: 'src',
-          image: 'xlink:href',
-          video: 'src',
-          source: 'src',
-        };
-        options.babelLoader = {
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                modules: false,
-              },
-            ],
-          ],
-        };
-        return options;
-      });
+    // // 使用babel转换ES6模块
+    // config.module
+    //   .rule('vue')
+    //   .use('vue-loader')
+    //   .loader('vue-loader')
+    //   .tap((options) => {
+    //     // 修改options中的babel配置
+    //     options.transformAssetUrls = {
+    //       audio: 'src',
+    //     };
+    //     options.transformToRequire = {
+    //       img: 'src',
+    //       image: 'xlink:href',
+    //       video: 'src',
+    //       source: 'src',
+    //     };
+    //     options.babelLoader = {
+    //       presets: [
+    //         [
+    //           '@babel/preset-env',
+    //           {
+    //             modules: false,
+    //           },
+    //         ],
+    //       ],
+    //     };
+    //     return options;
+    //   });
 
     // // 打包后可视化分析
     config
