@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url(fonts/element-icons.woff) format("woff"), url(fonts/element-icons.ttf) format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

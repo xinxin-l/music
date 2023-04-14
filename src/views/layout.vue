@@ -1,54 +1,52 @@
 <template>
-    <div class="layout">
-        <top_nav></top_nav>
-        <keep-alive :include='keep_arr'>
-            <router-view></router-view>
-        </keep-alive>
-        <div class="player">
-            <audio :src="url" controls ref='audio_ref' autoplay>
-            </audio>
-        </div>
-        <el-button circle class='btn' @click='toLyric'>词</el-button>
+  <div class="layout">
+    <top_nav></top_nav>
+    <keep-alive :include="keep_arr">
+      <router-view></router-view>
+    </keep-alive>
+    <div class="player">
+      <audio :src="url" controls ref="audio_ref" autoplay></audio>
     </div>
+  </div>
 </template>
 <script>
-import top_nav from '../components/nav.vue'
 export default {
-    components: { top_nav },
-    data() {
-        return {
-            url: '',
-            keep_arr: ['all_playList', 'home', 'search', 'album', 'singerDetail', 'playList', 'all_album', 'today','all_singer']
-        }
-    },
-    methods: {
-        toLyric() {
-            let num = this.getId()
-            if (!num) {
-                return
-            }
-            this.$router.push({ name: 'lyric' })
-        }
-    }
-}
+  components: { top_nav: () => import('../components/nav.vue') },
+  data() {
+    return {
+      url: '',
+      keep_arr: [
+        'all_playList',
+        'home',
+        'search',
+        'album',
+        'singerDetail',
+        'playList',
+        'all_album',
+        'today',
+        'all_singer',
+      ],
+    };
+  },
+};
 </script>
 <style scoped>
 .player {
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }
 
 audio {
-    width: 100%;
-    border-radius: 0;
-    display: block;
+  width: 100%;
+  border-radius: 0;
+  display: block;
 }
 
 .btn {
-    position: fixed;
-    top: 20px;
-    right: 15px;
-    z-index: 100;
+  position: fixed;
+  top: 20px;
+  right: 15px;
+  z-index: 100;
 }
 </style>

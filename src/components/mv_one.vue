@@ -1,54 +1,59 @@
 <template>
-    <div class='mv_one'>
-        <img :src="pic_url" alt="" @click='toMv'>
-        <div class="tt">{{name}}</div>
-    </div>
+  <div class="mv_one" v-loading="loading" @click="toMv">
+    <v-lazy-image :src="getPicUrl(pic_url)" alt="" width="240" height="120" />
+  </div>
 </template>
 <script>
+import VLazyImage from 'v-lazy-image/v2';
+import { Cloudinary } from '@cloudinary/url-gen';
+import { Resize } from '@cloudinary/url-gen/actions';
+
+const cldInstance = new Cloudinary({ cloud: { cloudName: 'du8xpmd0e' } });
 export default {
-    props: ['pic_url', 'name', 'id', 'art_id'],
-    methods: {
-        toMv() {
-            this.$emit('change',true)
-            this.$api.toMv(this.id).then(res => {
-                this.$router.push({ name: 'mv', params: { video_url: res.data.url, a_id: this.art_id, id: this.id } })
-                this.$emit('change',false)
-            })
-        }
-    }
-}
+  props: ['pic_url', 'name', 'id', 'art_id'],
+  data() {
+    return {
+      loading: false,
+    };
+  },
+  components: { VLazyImage },
+  methods: {
+    getPicUrl(url) {
+      return cldInstance
+        .image(url)
+        .setDeliveryType('fetch')
+        .resize(Resize.fill().width(240).height(120))
+        .toURL();
+    },
+    toMv() {
+      this.loading = true;
+      this.$api.toMv(this.id).then((res) => {
+        this.$router.push({
+          name: 'mv',
+          params: { video_url: res.data.url, a_id: this.art_id, id: this.id },
+        });
+        this.loading = false;
+      });
+    },
+  },
+};
 </script>
 <style scoped>
 .mv_one {
-    padding: 7px 8px 10px 8px;
-    margin-bottom: 8px;
-    display: inline-block;
-    width: 50%;
-    vertical-align: top;
-}
-
-.mv_one:hover {
-    background-color: #E7E7E7;
-    border-radius: 5px;
+  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 240px;
+  height: 120px;
+  margin: 0 6px;
 }
 
 .mv_one img {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
-}
-
-.mv_one img:hover {
-    cursor: pointer;
-}
-
-.mv_one>.tt {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: center;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
+  width: 240px;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
 }
 </style>
