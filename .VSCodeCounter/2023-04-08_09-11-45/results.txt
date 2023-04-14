@@ -1,0 +1,186 @@
+Date : 2023-04-08 09:11:45
+Directory : /Users/bytedance/Downloads/music-master
+Total : 138 files,  44377 codes, 64 comments, 3117 blanks, all 47558 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          3 |     27,399 |          0 |          2 |     27,401 |
+| CSS        |         96 |     13,491 |          1 |      2,904 |     16,396 |
+| Vue        |         30 |      3,031 |         35 |        186 |      3,252 |
+| JavaScript |          7 |        414 |         27 |         19 |        460 |
+| Markdown   |          1 |         26 |          0 |          5 |         31 |
+| HTML       |          1 |         16 |          1 |          1 |         18 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |        138 |     44,377 |         64 |      3,117 |     47,558 |
+| . (Files)                                                                          |          6 |     27,443 |          3 |          8 |     27,454 |
+| public                                                                             |         96 |     13,463 |          1 |      2,895 |     16,359 |
+| public (Files)                                                                     |          1 |         16 |          1 |          1 |         18 |
+| public/theme                                                                       |         95 |     13,447 |          0 |      2,894 |     16,341 |
+| public/theme/element                                                               |         95 |     13,447 |          0 |      2,894 |     16,341 |
+| src                                                                                |         36 |      3,471 |         60 |        214 |      3,745 |
+| src (Files)                                                                        |          3 |         45 |          8 |          4 |         57 |
+| src/api                                                                            |          1 |        193 |          4 |          1 |        198 |
+| src/assets                                                                         |          1 |         44 |          1 |         10 |         55 |
+| src/assets/css                                                                     |          1 |         44 |          1 |         10 |         55 |
+| src/components                                                                     |         12 |        736 |         12 |         51 |        799 |
+| src/router                                                                         |          1 |         93 |          0 |          3 |         96 |
+| src/utils                                                                          |          1 |         75 |         12 |         10 |         97 |
+| src/views                                                                          |         17 |      2,285 |         23 |        135 |      2,443 |
+| src/views (Files)                                                                  |         12 |      1,793 |          6 |        114 |      1,913 |
+| src/views/home                                                                     |          2 |        184 |         16 |          6 |        206 |
+| src/views/mine                                                                     |          1 |         11 |          0 |          1 |         12 |
+| src/views/search                                                                   |          1 |         60 |          0 |          2 |         62 |
+| src/views/today                                                                    |          1 |        237 |          1 |         12 |        250 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                           | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/bytedance/Downloads/music-master/README.md                                  | Markdown   |         26 |          0 |          5 |         31 |
+| /Users/bytedance/Downloads/music-master/babel.config.js                            | JavaScript |          5 |          0 |          1 |          6 |
+| /Users/bytedance/Downloads/music-master/package-lock.json                          | JSON       |     27,346 |          0 |          1 |     27,347 |
+| /Users/bytedance/Downloads/music-master/package.json                               | JSON       |         47 |          0 |          1 |         48 |
+| /Users/bytedance/Downloads/music-master/public/index.html                          | HTML       |         16 |          1 |          1 |         18 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/alert.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/aside.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/autocomplete.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/avatar.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/backtop.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/badge.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/base.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/breadcrumb-item.css   | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/breadcrumb.css        | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/button-group.css      | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/button.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/calendar.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/card.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/carousel-item.css     | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/carousel.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/cascader-panel.css    | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/cascader.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/checkbox-button.css   | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/checkbox-group.css    | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/checkbox.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/col.css               | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/collapse-item.css     | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/collapse.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/color-picker.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/container.css         | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/date-picker.css       | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/descriptions-item.css | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/descriptions.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/dialog.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/display.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/divider.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/drawer.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/dropdown-item.css     | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/dropdown-menu.css     | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/dropdown.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/empty.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/footer.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/form-item.css         | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/form.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/header.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/icon.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/image.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/index.css             | CSS        |     13,367 |          0 |      2,880 |     16,247 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/infinite-scroll.css   | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/infiniteScroll.css    | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/input-number.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/input.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/link.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/loading.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/main.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/menu-item-group.css   | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/menu-item.css         | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/menu.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/message-box.css       | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/message.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/notification.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/option-group.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/option.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/page-header.css       | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/pagination.css        | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/popconfirm.css        | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/popover.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/popper.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/progress.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/radio-button.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/radio-group.css       | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/radio.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/rate.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/reset.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/result.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/row.css               | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/scrollbar.css         | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/select-dropdown.css   | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/select.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/skeleton-item.css     | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/skeleton.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/slider.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/spinner.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/step.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/steps.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/submenu.css           | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/switch.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/tab-pane.css          | CSS        |          0 |          0 |          1 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/table-column.css      | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/table.css             | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/tabs.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/tag.css               | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/time-picker.css       | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/time-select.css       | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/timeline-item.css     | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/timeline.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/tooltip.css           | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/transfer.css          | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/tree.css              | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/public/theme/element/upload.css            | CSS        |          1 |          0 |          0 |          1 |
+| /Users/bytedance/Downloads/music-master/src/App.vue                                | Vue        |         10 |          0 |          0 |         10 |
+| /Users/bytedance/Downloads/music-master/src/api/index.js                           | JavaScript |        193 |          4 |          1 |        198 |
+| /Users/bytedance/Downloads/music-master/src/assets/css/common.css                  | CSS        |         44 |          1 |         10 |         55 |
+| /Users/bytedance/Downloads/music-master/src/components/album_one.vue               | Vue        |         48 |          0 |          5 |         53 |
+| /Users/bytedance/Downloads/music-master/src/components/back.vue                    | Vue        |         32 |          0 |          2 |         34 |
+| /Users/bytedance/Downloads/music-master/src/components/box.vue                     | Vue        |         49 |          0 |          4 |         53 |
+| /Users/bytedance/Downloads/music-master/src/components/comment.vue                 | Vue        |         66 |          0 |          8 |         74 |
+| /Users/bytedance/Downloads/music-master/src/components/mv_one.vue                  | Vue        |         50 |          0 |          4 |         54 |
+| /Users/bytedance/Downloads/music-master/src/components/nav.vue                     | Vue        |         31 |          0 |          2 |         33 |
+| /Users/bytedance/Downloads/music-master/src/components/playList_one.vue            | Vue        |         52 |         12 |          4 |         68 |
+| /Users/bytedance/Downloads/music-master/src/components/radio.vue                   | Vue        |         33 |          0 |          2 |         35 |
+| /Users/bytedance/Downloads/music-master/src/components/search_list.vue             | Vue        |         63 |          0 |          6 |         69 |
+| /Users/bytedance/Downloads/music-master/src/components/search_result.vue           | Vue        |        179 |          0 |          5 |        184 |
+| /Users/bytedance/Downloads/music-master/src/components/singer.vue                  | Vue        |         48 |          0 |          3 |         51 |
+| /Users/bytedance/Downloads/music-master/src/components/song.vue                    | Vue        |         85 |          0 |          6 |         91 |
+| /Users/bytedance/Downloads/music-master/src/main.js                                | JavaScript |         26 |          2 |          2 |         30 |
+| /Users/bytedance/Downloads/music-master/src/promise.js                             | JavaScript |          9 |          6 |          2 |         17 |
+| /Users/bytedance/Downloads/music-master/src/router/index.js                        | JavaScript |         93 |          0 |          3 |         96 |
+| /Users/bytedance/Downloads/music-master/src/utils/request.js                       | JavaScript |         75 |         12 |         10 |         97 |
+| /Users/bytedance/Downloads/music-master/src/views/album.vue                        | Vue        |        159 |          1 |          9 |        169 |
+| /Users/bytedance/Downloads/music-master/src/views/all_album.vue                    | Vue        |        236 |          1 |         16 |        253 |
+| /Users/bytedance/Downloads/music-master/src/views/all_mv.vue                       | Vue        |        152 |          0 |         11 |        163 |
+| /Users/bytedance/Downloads/music-master/src/views/all_playList.vue                 | Vue        |        157 |          0 |          8 |        165 |
+| /Users/bytedance/Downloads/music-master/src/views/all_singer.vue                   | Vue        |        134 |          1 |         10 |        145 |
+| /Users/bytedance/Downloads/music-master/src/views/all_song.vue                     | Vue        |        156 |          0 |         11 |        167 |
+| /Users/bytedance/Downloads/music-master/src/views/each_list.vue                    | Vue        |         82 |          1 |          3 |         86 |
+| /Users/bytedance/Downloads/music-master/src/views/home/index.vue                   | Vue        |        142 |          8 |          5 |        155 |
+| /Users/bytedance/Downloads/music-master/src/views/home/musicListView.vue           | Vue        |         42 |          8 |          1 |         51 |
+| /Users/bytedance/Downloads/music-master/src/views/layout.vue                       | Vue        |         52 |          0 |          2 |         54 |
+| /Users/bytedance/Downloads/music-master/src/views/lyric.vue                        | Vue        |         99 |          0 |          5 |        104 |
+| /Users/bytedance/Downloads/music-master/src/views/mine/mine.vue                    | Vue        |         11 |          0 |          1 |         12 |
+| /Users/bytedance/Downloads/music-master/src/views/mv.vue                           | Vue        |        206 |          1 |         15 |        222 |
+| /Users/bytedance/Downloads/music-master/src/views/playList.vue                     | Vue        |        177 |          1 |         13 |        191 |
+| /Users/bytedance/Downloads/music-master/src/views/search/search.vue                | Vue        |         60 |          0 |          2 |         62 |
+| /Users/bytedance/Downloads/music-master/src/views/singerDetail.vue                 | Vue        |        183 |          0 |         11 |        194 |
+| /Users/bytedance/Downloads/music-master/src/views/today/index.vue                  | Vue        |        237 |          1 |         12 |        250 |
+| /Users/bytedance/Downloads/music-master/vercel.json                                | JSON       |          6 |          0 |          0 |          6 |
+| /Users/bytedance/Downloads/music-master/vue.config.js                              | JavaScript |         13 |          3 |          0 |         16 |
+| Total                                                                              |            |     44,377 |         64 |      3,117 |     47,558 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

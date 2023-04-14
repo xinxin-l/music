@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*font: 15px"宋体", "Arial Narrow", HELVETICA;*/
+    background-color: #FAFAFA;
+}
+
+a {
+    color: #2d374b;
+    text-decoration: none
+}
+
+a:hover {
+    color: #cd0200;
+    text-decoration: underline
+}
+
+em {
+    font-style: normal
+}
+
+li {
+    list-style: none
+}
+
+.active {
+    color: #ff0000;
+    border-bottom: 2px solid #ff0000;
+}
+
+.playlist {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.song-box {
+    display: flex;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+.song-template{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+}
+
+.playlist-template {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    padding-left: 16px;
+    min-height: 140px;
+}
+
+.playlist-template-box {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.playlist-box-outer {
+    min-width: 28%; padding: 6px;
+}
+
+.mv-template {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    padding-left: 16px;
+}
+
+/* /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active{
+    background-color: #D45E5C;
+} */
+
+.unfold {
+    position: fixed;
+    top: 42px;
+    left: 20px;
+    font-size: 25px;
+}
+
+
