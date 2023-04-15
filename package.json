@@ -37,7 +37,6 @@
     "less-loader": "^11.1.0",
     "purgecss-webpack-plugin": "^2.2.0",
     "rollup-plugin-visualizer": "^5.9.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-template-compiler": "^2.6.11",
     "webpack-bundle-analyzer": "^4.8.0",
     "worker-loader": "^3.0.8"

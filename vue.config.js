@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 // const isProduction = process.env.NODE_ENV === 'production';
 const isProduction = true;
 
@@ -66,21 +66,21 @@ module.exports = {
         return args;
       });
       //   使用UglifyJsPlugin删除无用代码
-      plugins.push(
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            output: {
-              comments: false, //去掉注释
-            },
-            warnings: false,
-            compress: {
-              drop_console: true,
-              drop_debugger: false,
-              pure_funcs: ['console.log'], //移除console.log
-            },
-          },
-        })
-      );
+      //   plugins.push(
+      //     new UglifyJsPlugin({
+      //       uglifyOptions: {
+      //         output: {
+      //           comments: false, //去掉注释
+      //         },
+      //         warnings: false,
+      //         compress: {
+      //           drop_console: true,
+      //           drop_debugger: false,
+      //           pure_funcs: ['console.log'], //移除console.log
+      //         },
+      //       },
+      //     })
+      //   );
     }
     config.module
       .rule('worker')
